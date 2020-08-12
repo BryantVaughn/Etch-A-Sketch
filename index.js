@@ -3,7 +3,6 @@ const generateCells = (size) => {
 		for (let j = 0; j < size; j++) {
 			let cell = document.createElement('div');
 			cell.classList.add('cell');
-			cell.textContent = i * 16 + (j + 1);
 			container.appendChild(cell);
 		}
 	}
@@ -11,3 +10,11 @@ const generateCells = (size) => {
 
 const container = document.querySelector('.cell-container');
 generateCells(16);
+
+// get cells and add event listener
+const cells = document.querySelectorAll('.cell');
+cells.forEach((cell) => {
+	cell.addEventListener('mouseover', () => {
+		cell.classList.add('visited');
+	});
+});
