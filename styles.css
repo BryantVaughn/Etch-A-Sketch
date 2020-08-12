@@ -1,19 +1,21 @@
+.root {
+	text-align: center;
+}
+
+#clear-btn {
+	margin: 25px 0;
+}
+
 .cell-container {
 	display: grid;
-	grid-template-columns: repeat(16, 1fr);
-	height: 700px;
-	width: 700px;
-	border-top: 1px solid black;
-	border-left: 1px solid black;
+	height: 540px;
+	width: 960px;
+	border-top: 1px solid rgba(0, 0, 0, 0.05);
+	border-left: 1px solid rgba(0, 0, 0, 0.05);
 	margin: auto;
 }
 
 .cell {
-	text-align: center;
-	border-bottom: 1px solid black;
-	border-right: 1px solid black;
-}
-
-.visited {
-	background-color: aqua;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+	border-right: 1px solid rgba(0, 0, 0, 0.05);
 }
