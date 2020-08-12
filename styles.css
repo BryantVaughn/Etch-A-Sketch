@@ -1,0 +1,15 @@
+.cell-container {
+	display: grid;
+	grid-template-columns: repeat(16, 1fr);
+	height: 700px;
+	width: 700px;
+	border-top: 1px solid black;
+	border-left: 1px solid black;
+	margin: auto;
+}
+
+.cell {
+	text-align: center;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+}
