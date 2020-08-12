@@ -1,22 +1,38 @@
-const generateCells = (size) => {
+const container = document.querySelector('.cell-container');
+const resizeBtn = document.querySelector('#resize-btn');
+const rgbBtn = document.querySelector('#rgb-btn');
+const clearBtn = document.querySelector('#clear-btn');
+
+// generate initial board
+generateCells(16);
+
+function generateCells(size) {
 	container.innerHTML = '';
-	container.setAttribute(
-		'style',
-		`grid-template-columns: repeat(${size}, 1fr);`
-	);
+	container.style.setProperty('--grid-columns', size);
 	for (let i = 0; i < size; i++) {
 		for (let j = 0; j < size; j++) {
 			let cell = document.createElement('div');
 			cell.classList.add('cell');
-			cell.addEventListener('mouseover', () => {
-				cell.style.backgroundColor = 'slategray';
-			});
 			container.appendChild(cell);
 		}
 	}
-};
+	blackHoverEffect();
+}
 
-const resetBoard = () => {
+function blackHoverEffect() {
+	const cells = getCells();
+	cells.forEach((cell) => {
+		cell.addEventListener('mouseover', () => {
+			cell.style.backgroundColor = 'black';
+		});
+	});
+}
+
+function getCells() {
+	return document.querySelectorAll('.cell');
+}
+
+function changeBoard() {
 	let validInput = false;
 	let size;
 
@@ -34,17 +50,14 @@ const resetBoard = () => {
 		}
 	}
 	generateCells(size);
-};
+}
 
-const boardWidth = 960;
-const boardHeight = 540;
+function clearBoard() {
+	const cells = getCells();
+	cells.forEach((cell) => {
+		cell.style.backgroundColor = 'white';
+	});
+}
 
-const container = document.querySelector('.cell-container');
-
-const clear = document.querySelector('#clear-btn');
-clear.addEventListener('click', () => {
-	resetBoard();
-});
-
-// generate initial board
-generateCells(16);
+resizeBtn.addEventListener('click', changeBoard);
+clearBtn.addEventListener('click', clearBoard);

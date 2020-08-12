@@ -8,6 +8,7 @@
 
 .cell-container {
 	display: grid;
+	grid-template-columns: repeat(var(--grid-columns), 1fr);
 	height: 540px;
 	width: 960px;
 	border-top: 1px solid rgba(0, 0, 0, 0.05);
@@ -18,4 +19,5 @@
 .cell {
 	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 	border-right: 1px solid rgba(0, 0, 0, 0.05);
+	background-color: white;
 }
