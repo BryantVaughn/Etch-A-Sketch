@@ -8,6 +8,11 @@ body {
 	margin: auto;
 }
 
+.title {
+	font-family: 'Cabin Sketch';
+	font-size: 48px;
+}
+
 .header {
 	display: flex;
 	justify-content: space-between;
@@ -30,6 +35,8 @@ body {
 	outline: none;
 	border: none;
 	cursor: pointer;
+	font-family: 'Cabin Sketch';
+	font-size: 18px;
 	background-color: #3fceaa;
 	box-shadow: 0 6px #409a89;
 }
@@ -49,7 +56,7 @@ body {
 	grid-template-columns: repeat(var(--grid-columns), 1fr);
 	height: 540px;
 	width: 960px;
-	margin: 30px auto;
+	margin: auto;
 }
 
 .clear {
