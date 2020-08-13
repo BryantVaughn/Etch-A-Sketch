@@ -1,4 +1,5 @@
 const container = document.querySelector('.cell-container');
+const gridBtn = document.querySelector('#grid-btn');
 const resizeBtn = document.querySelector('#resize-btn');
 const rgbBtn = document.querySelector('#rgb-btn');
 const clearBtn = document.querySelector('#clear-btn');
@@ -16,6 +17,7 @@ function generateCells(size) {
 			container.appendChild(cell);
 		}
 	}
+	clearCells();
 	blackHoverEffect();
 }
 
@@ -28,8 +30,26 @@ function blackHoverEffect() {
 	});
 }
 
+function randomHoverEffect() {
+	const cells = getCells();
+	cells.forEach((cell) => {
+		cell.addEventListener('mouseover', () => {
+			cell.style.backgroundColor = generateRandomColor();
+		});
+	});
+}
+
 function getCells() {
 	return document.querySelectorAll('.cell');
+}
+
+function generateRandomColor() {
+	const colorValues = '0123456789ABCDEF';
+	let color = '#';
+	for (let i = 0; i < 6; i++) {
+		color += colorValues[Math.floor(Math.random() * colorValues.length)];
+	}
+	return color;
 }
 
 function changeBoard() {
@@ -53,11 +73,21 @@ function changeBoard() {
 }
 
 function clearBoard() {
+	container.classList.toggle('clear');
+
+	setTimeout(() => {
+		clearCells();
+		container.classList.toggle('clear');
+	}, 1000);
+}
+
+function clearCells() {
 	const cells = getCells();
 	cells.forEach((cell) => {
-		cell.style.backgroundColor = 'white';
+		cell.style.backgroundColor = '#e8e8eb';
 	});
 }
 
 resizeBtn.addEventListener('click', changeBoard);
+rgbBtn.addEventListener('click', randomHoverEffect);
 clearBtn.addEventListener('click', clearBoard);
