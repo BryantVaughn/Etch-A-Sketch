@@ -4,8 +4,11 @@ const resizeBtn = document.querySelector('#resize-btn');
 const rgbBtn = document.querySelector('#rgb-btn');
 const clearBtn = document.querySelector('#clear-btn');
 
+// used for handling cancelled grid change
+let lastSize = 48;
+
 // generate initial board
-generateCells(48);
+generateCells(lastSize);
 
 function generateCells(size) {
 	container.innerHTML = '';
@@ -61,7 +64,9 @@ function changeBoard() {
 
 		try {
 			size = parseInt(prompt('How many squares per side? (16-96)'));
-			if (size < 16 || size > 96) {
+			if (!size) {
+				size = lastSize;
+			} else if (size < 16 || size > 96) {
 				validInput = false;
 				throw new Error('Number of squares must be in range of 16 to 96');
 			}
@@ -69,6 +74,8 @@ function changeBoard() {
 			alert(e.message);
 		}
 	}
+
+	lastSize = size;
 	generateCells(size);
 }
 
