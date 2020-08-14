@@ -10,4 +10,6 @@ I went beyond the bare minimum and tried to challenge myself with styling and so
 
 This project was a TON of fun to build. The minimum goal was slightly challenging, but adding the stretch goals to improve my knowledge of CSS animations and styling was well worth it. This is one of my favorite front-end projects I've built so far!
 
+[View Simulator](https://bryantvaughn.github.io/Etch-A-Sketch/)
+
 ![ScreenShot](images/EtchASketch.png)
