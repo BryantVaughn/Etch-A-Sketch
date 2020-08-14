@@ -43,6 +43,20 @@ body {
 	box-shadow: none;
 	top: 6px;
 }
+.active-color {
+	width: 140px;
+	height: 30px;
+	border-radius: 5px;
+	position: relative;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	font-family: 'Cabin Sketch';
+	font-size: 16px;
+	background-color: #3fceaa;
+	box-shadow: none;
+	top: 6px;
+}
 
 .cell-container {
 	display: grid;

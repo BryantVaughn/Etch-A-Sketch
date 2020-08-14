@@ -1,6 +1,6 @@
 const container = document.querySelector('.cell-container');
-const gridBtn = document.querySelector('#grid-btn');
 const resizeBtn = document.querySelector('#resize-btn');
+const darkBtn = document.querySelector('#dark-btn');
 const rgbBtn = document.querySelector('#rgb-btn');
 const clearBtn = document.querySelector('#clear-btn');
 
@@ -21,19 +21,23 @@ function generateCells(size) {
 		}
 	}
 	clearCells();
-	blackHoverEffect();
+	darkHoverEffect();
 }
 
-function blackHoverEffect() {
+function darkHoverEffect() {
+	changeButtons('dark');
+
 	const cells = getCells();
 	cells.forEach((cell) => {
 		cell.addEventListener('mouseover', () => {
-			cell.style.backgroundColor = 'black';
+			cell.style.backgroundColor = '#303542';
 		});
 	});
 }
 
 function randomHoverEffect() {
+	changeButtons('random');
+
 	const cells = getCells();
 	cells.forEach((cell) => {
 		cell.addEventListener('mouseover', () => {
@@ -53,6 +57,24 @@ function generateRandomColor() {
 		color += colorValues[Math.floor(Math.random() * colorValues.length)];
 	}
 	return color;
+}
+
+function changeButtons(str) {
+	if (str === 'dark') {
+		// add "pressed" styles to dark color button
+		darkBtn.classList.add('active-color');
+		darkBtn.classList.remove('btn');
+		// remove "pressed" styles from random color button
+		rgbBtn.classList.add('btn');
+		rgbBtn.classList.remove('active-color');
+	} else {
+		// add "pressed" styles to random color button
+		rgbBtn.classList.add('active-color');
+		rgbBtn.classList.remove('btn');
+		// remove "pressed" styles from dark color button
+		darkBtn.classList.add('btn');
+		darkBtn.classList.remove('active-color');
+	}
 }
 
 function changeBoard() {
@@ -96,5 +118,6 @@ function clearCells() {
 }
 
 resizeBtn.addEventListener('click', changeBoard);
+darkBtn.addEventListener('click', darkHoverEffect);
 rgbBtn.addEventListener('click', randomHoverEffect);
 clearBtn.addEventListener('click', clearBoard);
