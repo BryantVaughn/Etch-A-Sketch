@@ -15,28 +15,23 @@ body {
 
 .header {
 	display: flex;
-	justify-content: space-between;
-	width: 75%;
-	margin: auto;
 }
 
 .btn-container {
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
-	width: 60%;
 }
 
 .btn {
-	width: 200px;
-	height: 40px;
+	width: 140px;
+	height: 30px;
 	border-radius: 5px;
 	position: relative;
 	outline: none;
 	border: none;
 	cursor: pointer;
 	font-family: 'Cabin Sketch';
-	font-size: 18px;
+	font-size: 16px;
 	background-color: #3fceaa;
 	box-shadow: 0 6px #409a89;
 }
@@ -51,7 +46,7 @@ body {
 
 .cell-container {
 	display: grid;
-	border: 100px solid #df3b15;
+	border: 75px solid #df3b15;
 	border-radius: 15px;
 	grid-template-columns: repeat(var(--grid-columns), 1fr);
 	height: 540px;
@@ -66,6 +61,40 @@ body {
 
 .cell {
 	border: none;
+}
+
+@media only screen and (max-width: 1400px) {
+	.header {
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		margin: 0 auto 25px auto;
+		width: 75%;
+	}
+	.btn-container {
+		width: 720px;
+		justify-content: space-around;
+	}
+	.title {
+		margin: 10px;
+	}
+	.cell-container {
+		border: 50px solid #df3b15;
+		width: 720px;
+		height: 480px;
+	}
+}
+@media only screen and (min-width: 1401px) {
+	.header {
+		flex-direction: row;
+		justify-content: space-between;
+		margin: auto;
+		width: 70%;
+	}
+	.btn-container {
+		width: 60%;
+		justify-content: space-between;
+	}
 }
 
 @keyframes shake {
